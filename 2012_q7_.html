@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>FORM Validation with the Help of VB-SCRIPT</TITLE>
+</head>
+<SCRIPT LANGUAGE="VBScript"> 
+<!--
+Sub Submit_OnClick
+  Dim TheForm
+  Set TheForm = Document.ValidForm
+  
+    If TheForm.user_name.Value = "admin" And TheForm.pass_word.Value = "123" Then
+      MsgBox "Authenticated"
+    Else
+      MsgBox "Not Authenticated"
+    End If
+  
+End Sub
+-->
+</SCRIPT>
+</HEAD>
+<BODY>
+<H3>Simple Validation</H3><HR>
+<FORM NAME="ValidForm">
+Enter Username: <INPUT NAME="user_name" TYPE="text" SIZE="12"><br>
+Enter Password: <INPUT NAME="pass_word" TYPE="password" SIZE="12"><br>
+<INPUT NAME="Submit" TYPE="BUTTON" VALUE="Validate">
+</FORM>
+</BODY>
+</HTML>

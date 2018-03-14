@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Question 5</title>
+</head>
+<body>
+<script language="Javascript">
+function IsEmpty(){
+if((document.forms['frm'].one.value === "")||(document.forms['frm'].two.value === ""))
+{
+alert("Both fields are mandatory");
+return false;
+}
+return true;
+}
+</script>
+<form name="frm">
+1st Field:<input name="one"/><br/>
+2nd Field:<input name="two"/><br/>
+<input onclick="return IsEmpty();" type="submit" value="Submit"/>
+<input onclick="return IsEmpty();" type="reset" value="Clear"/>
+</form>
+</body>
+</html>

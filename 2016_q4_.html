@@ -1,0 +1,12 @@
+Application Object
+An application on the Web may consists of several ASP files that work together to perform some purpose. The Application object is used to tie these files together. The Application object is used to store and access variables from any page, just like the Session object. The difference is that ALL users share ONE Application object (with Sessions there is ONE Session object for EACH user). The Application object holds information that will be used by many pages in the application (like database connection information). The information can be accessed from any page. The information can also be changed in one place, and the changes will automatically be reflected on all pages. The Application object's collections, methods, and events are described below:
+Contents 	Contains all the items appended to the application through a script command
+StaticObjects 	Contains all the objects appended to the application with the HTML <object> tag
+Methods
+Contents.Remove 	Deletes an item from the Contents collection
+Contents.RemoveAll() 	Deletes all items from the Contents collection
+Lock 	Prevents other users from modifying the variables in the Application object
+Unlock 	Enables other users to modify the variables in the Application object (after it has been locked using the Lock method)
+Events
+Application_OnEnd 	Occurs when all user sessions are over, and the application ends
+Application_OnStart 	Occurs before the first new session is created (when the Application object is first referenced)

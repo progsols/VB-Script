@@ -1,0 +1,43 @@
+Global.asa
+The Global.asa file is an optional file that can contain declarations of objects, variables, and methods that can be accessed by every page in an ASP application. All valid browser scripts (JavaScript, VBScript, JScript, PerlScript, etc.) can be used within Global.asa.
+The Global.asa file can contain only the following:
+Application events
+Session events
+<object> declarations
+TypeLibrary declarations
+the #include directive
+Events in Global.asa
+In Global.asa you can tell the application and session objects what to do when the application/session starts and what to do when the application/session ends. The code for this is placed in event handlers. The Global.asa file can contain four types of events:
+Application_OnStart - Occurs when the FIRST user calls the first page in an ASP application. This event occurs after the Web server is restarted or after the Global.asa file is edited. The "Session_OnStart" event occurs immediately after this event.
+Session_OnStart - This event occurs EVERY time a NEW user requests his or her first page in the ASP application.
+Session_OnEnd - This event occurs EVERY time a user ends a session. A user-session ends after a page has not been requested by the user for a specified time (by default this is 20 minutes).
+Application_OnEnd - This event occurs after the LAST user has ended the session. Typically, this event occurs when a Web server stops. This procedure is used to clean up settings after the Application stops, like delete records or write information to text files
+A Global.asa file could look something like this:
+<script language="vbscript" runat="server">
+sub Application_OnStart
+'some code
+end sub
+sub Application_OnEnd
+'some code
+end sub
+sub Session_OnStart
+'some code
+end sub
+sub Session_OnEnd
+'some code
+end sub
+</script>
+Restrictions on what you can include in the Global.asa file:
+You cannot display text written in the Global.asa file. This file can't display information. You can only use Server and Application objects in the Application_OnStart and Application_OnEnd subroutines. In the Session_OnEnd subroutine, you can use Server, Application, and Session objects. In the Session_OnStart subroutine you can use any built-in object
+Application Object
+An application on the Web may consists of several ASP files that work together to perform some purpose. The Application object is used to tie these files together. The Application object is used to store and access variables from any page, just like the Session object. The difference is that ALL users share ONE Application object (with Sessions there is ONE Session object for EACH user). The Application object holds information that will be used by many pages in the application (like database connection information). The information can be accessed from any page. The information can also be changed in one place, and the changes will automatically be reflected on all pages. The Application object's collections, methods, and events are described below:
+Contents 	Contains all the items appended to the application through a script command
+StaticObjects 	Contains all the objects appended to the application with the HTML <object> tag
+Methods
+Contents.Remove 	Deletes an item from the Contents collection
+Contents.RemoveAll() 	Deletes all items from the Contents collection
+Lock 	Prevents other users from modifying the variables in the Application object
+Unlock 	Enables other users to modify the variables in the Application object (after it has been locked using the Lock method)
+Events
+Application_OnEnd 	Occurs when all user sessions are over, and the application ends
+Application_OnStart 	Occurs before the first new session is created (when the Application object is first referenced)

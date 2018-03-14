@@ -1,0 +1,50 @@
+Definition and Usage of tbody 
+The <tbody> tag is used to group the body content in an HTML table. The <tbody> element is used in conjunction with the <thead> and <tfoot> elements to specify each part of a table (body, header, footer). Browsers can use these elements to enable scrolling of the table body independently of the header and footer. Also, when printing a large table that spans multiple pages, these elements can enable the table header and footer to be printed at the top and bottom of each page. The <tbody> tag must be used in the following context: As a child of a <table> element, after any <caption>, <colgroup>, and <thead> elements.
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Savings</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td>Sum</td>
+<td>$180</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td>January</td>
+<td>$100</td>
+</tr>
+<tr>
+<td>February</td>
+<td>$80</td>
+</tr>
+</tbody>
+</table>
+Definition and Usage of link
+The <link> tag defines a link between a document and an external resource. The <link> tag is used to link to external style sheets.
+<head>
+  <link rel="stylesheet" type="text/css" href="theme.css">
+</head>
+Definition and Usage of area
+The <area> tag defines an area inside an image-map (an image-map is an image with clickable areas). The <area> element is always nested inside a <map> tag. The usemap attribute in the <img> tag is associated with the <map> element's name attribute, and creates a relationship between the image and the map.
+<img src="planets.gif" width="145" height="126" alt="Planets"
+usemap="#planetmap">
+<map name="planetmap">
+<area shape="rect" coords="0,0,82,126" href="sun.htm" alt="Sun">
+<area shape="circle" coords="90,58,3" href="mercur.htm" alt="Mercury">
+</map>
+Definition and Usage of select
+The <select> element is used to create a drop-down list. The <option> tags inside the <select> element define the available options in the list.
+<select>
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="mercedes">Mercedes</option>
+<option value="audi">Audi</option>
+</select>
+Definition and Usage of strong
+The <strong> tag is a phrase tag. It defines important text. This tag is not deprecated, but it is possible to achieve richer effect with CSS.
+<strong>Strong text</strong>

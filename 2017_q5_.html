@@ -1,0 +1,81 @@
+ADO Recordset Object
+The ADO Recordset object is used to hold a set of records from a database table. A Recordset object consist of records and columns (fields). In ADO, this object is the most important and the one used most often to manipulate data from a database.
+ProgID
+set objRecordset=Server.CreateObject("ADODB.recordset")
+When you first open a Recordset, the current record pointer will point to the first record and the BOF and EOF properties are False. If there are no records, the BOF and EOF property are True. ecordset objects can support two types of updating: 
+Immediate updating - all changes are written immediately to the database once you call the Update method.
+Batch updating - the provider will cache multiple changes and then send them to the database with the UpdateBatch method.
+In ADO there are 4 different cursor types defined:
+Dynamic cursor - Allows you to see additions, changes, and deletions by other users.
+Keyset cursor - Like a dynamic cursor, except that you cannot see additions by other users, and it prevents access to records that other users have deleted. Data changes by other users will still be visible.
+Static cursor - Provides a static copy of a recordset for you to use to find data or generate reports. Additions, changes, or deletions by other users will not be visible. This is the only type of cursor allowed when you open a client-side Recordset object.
+Forward-only cursor - Allows you to only scroll forward through the Recordset. Additions, changes, or deletions by other users will not be visible. 
+The cursor type can be set by the CursorType property or by the CursorType parameter in the Open method.
+Note: Not all providers support all methods or properties of the Recordset object.
+Property 	Description
+AbsolutePage 	Sets or returns a value that specifies the page number in the Recordset object
+AbsolutePosition 	Sets or returns a value that specifies the ordinal position of the current record in the Recordset object
+ActiveCommand 	Returns the Command object associated with the Recordset
+ActiveConnection 	Sets or returns a definition for a connection if the connection is closed, or the current Connection object if the connection is open
+BOF 	Returns true if the current record position is before the first record, otherwise false
+Bookmark 	Sets or returns a bookmark. The bookmark saves the position of the current record
+CacheSize 	Sets or returns the number of records that can be cached
+CursorLocation 	Sets or returns the location of the cursor service
+CursorType 	Sets or returns the cursor type of a Recordset object
+DataMember 	Sets or returns the name of the data member that will be retrieved from the object referenced by the DataSource property
+DataSource 	Specifies an object containing data to be represented as a Recordset object
+EditMode 	Returns the editing status of the current record
+EOF 	Returns true if the current record position is after the last record, otherwise false
+Filter 	Sets or returns a filter for the data in a Recordset object
+Index 	Sets or returns the name of the current index for a Recordset object
+LockType 	Sets or returns a value that specifies the type of locking when editing a record in a Recordset
+MarshalOptions 	Sets or returns a value that specifies which records are to be returned to the server
+MaxRecords 	Sets or returns the maximum number of records to return to a Recordset object from a query
+PageCount 	Returns the number of pages with data in a Recordset object
+PageSize 	Sets or returns the maximum number of records allowed on a single page of a Recordset object
+RecordCount 	Returns the number of records in a Recordset object
+Sort 	Sets or returns the field names in the Recordset to sort on
+Source 	Sets a string value or a Command object reference, or returns a String value that indicates the data source of the Recordset object
+State 	Returns a value that describes if the Recordset object is open, closed, connecting, executing or retrieving data
+Status 	Returns the status of the current record with regard to batch updates or other bulk operations
+StayInSync 	Sets or returns whether the reference to the child records will change when the parent record position changes
+Method 	Description
+AddNew 	Creates a new record
+Cancel 	Cancels an execution
+CancelBatch 	Cancels a batch update
+CancelUpdate 	
+
+Cancels changes made to a record of a Recordset object
+Clone 	Creates a duplicate of an existing Recordset
+Close 	Closes a Recordset
+CompareBookmarks 	Compares two bookmarks
+Delete 	Deletes a record or a group of records
+Find 	Searches for a record in a Recordset that satisfies a specified criteria
+GetRows 	Copies multiple records from a Recordset object into a two-dimensional array
+GetString 	Returns a Recordset as a string
+Move 	Moves the record pointer in a Recordset object
+MoveFirst 	Moves the record pointer to the first record
+MoveLast 	Moves the record pointer to the last record
+MoveNext 	Moves the record pointer to the next record
+MovePrevious 	Moves the record pointer to the previous record
+NextRecordset 	Clears the current Recordset object and returns the next Recordset object by looping through a series of commands
+Open 	Opens a database element that gives you access to records in a table, the results of a query, or to a saved Recordset
+Requery 	Updates the data in a Recordset by re-executing the query that made the original Recordset
+Resync 	Refreshes the data in the current Recordset from the original database
+Save 	Saves a Recordset object to a file or a Stream object
+Seek 	Searches the index of a Recordset to find a record that matches the specified values
+Supports 	Returns a boolean value that defines whether or not a Recordset object supports a specific type of functionality
+Update 	Saves all changes made to a single record  in a Recordset object
+UpdateBatch 	Saves all changes in a Recordset to the database. Used when working in batch update mode
+Event 	Description
+EndOfRecordset 	Triggered when you try to move to a record after the last record
+FetchComplete 	Triggered after all records in an asynchronous operation have been fetched
+FetchProgress 	Triggered periodically in an asynchronous operation, to state how many more records that have been fetched
+FieldChangeComplete 	Triggered after the value of a Field object change
+MoveComplete 	Triggered after the current position in the Recordset has changed
+RecordChangeComplete 	Triggered after a record has changed
+RecordsetChangeComplete 	Triggered after the Recordset has changed
+WillChangeField 	Triggered before the value of a Field object change
+WillChangeRecord 	Triggered before a record change
+WillChangeRecordset 	Triggered before a Recordset change
+WillMove 	Triggered before the current position in the Recordset changes

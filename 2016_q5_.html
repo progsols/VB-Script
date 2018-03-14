@@ -1,0 +1,37 @@
+Session
+“session” is one of those computing terms that refers to seemingly different things : a shell session, a tcp session, a login session, a desktop session, a browser session, a server session etc. This makes it confusing to understand what exactly a session is. Same for the “cache”, another confusing term (database cache, browser cache, framework cache, network cache..). But actually what defines those confusing terms is the use they’re describing.
+Use of a session
+Generally you should understand the session as the different states of an application during the time a user is interacting with it, it is specific to the user. I would even say a session is an instance of the interaction of a user with an application, but I’m not sure it clarifies the matter. Now more specifically for a web session, the session is a data structure that an application uses to store temporary data that is useful only during the time a user is interacting with the application, it is also specific to the user.For example, you could save the user’s name in the session so that you don’t have to query the database every time you need it or you could store data in the session to save state between pages (between pages of a payment process for example). Think of it as a volatile memory quickly accessible that is allocated to each user who is using the application, and when the user quits, it is destroyed. This is the general concept, the storage mechanism and how it is implemented is then specific to the application. This temporary storage could be on the file system in text files, on a database or in the internal memory of the program executing the application.
+Web Browser
+A web browser (commonly referred to as a browser) is a software application for retrieving, presenting and traversing information resources on the World Wide Web. An information resource is identified by a Uniform Resource Identifier (URI/URL) that may be a web page, image, video or other piece of content.[1] Hyperlinks present in resources enable users easily to navigate their browsers to related resources. Although browsers are primarily intended to use the World Wide Web, they can also be used to access information provided by web servers in private networks or files in file systems. The most popular web browsers are Chrome, Edge, Safari, Opera and Firefox.
+The id Selector
+The id selector uses the id attribute of an HTML element to select a specific element. The id of an element should be unique within a page, so the id selector is used to select one unique element! To select an element with a specific id, write a hash (#) character, followed by the id of the element. The style rule below will be applied to the HTML element with id="para1":
+<html>
+<head>
+<style>
+#para1 {
+    text-align: center;
+    color: red;
+}
+</style>
+</head>
+<body>
+<p id="para1">Hello World!</p>
+<p>This paragraph is not affected by the style.</p>
+</body>
+</html>
+Connection String
+The ADO Connection Object is used to create an open connection to a data source. Through this connection, you can access and manipulate a database. If you want to access a database multiple times, you should establish a connection using the Connection object. You can also make a connection to a database by passing a connection string via a Command or Recordset object. However, this type of connection is only good for one specific, single query. The ConnectionString property sets or returns the details used to create a connection to a data source.
+Syntax
+objconn.ConnectionString="para1=value;para2=value;etc;"
+Provider 	The provider to use for the connection
+File Name 	A provider-specific file that contains connection information
+Remote Provider 	The provider to use when opening a client-side connection
+Remote Server 	A path name of the server to use when opening a client-side connection
+url 	An absolute URL identifying a resource, such as a file or directory
+<%
+set conn=Server.CreateObject("ADODB.Connection")
+conn.ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0"
+conn.open server.mappath("database.mdb")
+conn.close
+%> 
